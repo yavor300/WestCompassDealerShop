@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>West Compass</title>
@@ -26,23 +27,15 @@
         <h2 class="text-center text-white mt-5">West Compass Offers</h2>
         <hr style="width: 50%"/>
         <div class='row mb-4 d-flex justify-content-around'>
-            
+            <th:block th:each="o : ${offers}">
                 <div class="col-md-4 d-flex flex-column bg-text mb-3">
-                    <h2>Car brand: ...</h2>
-                    <h4>Model: ....</h4>
-                    <h4>Year: ...</h4>
-                    <h4>Engine: ...</h4>
+                    <h2 th:text="|Car brand: ${o.model.brand.name}|"></h2>
+                    <h4 th:text="|Model: ${o.model.name}|"></h4>
+                    <h4 th:text="|Year: ${o.year}|"></h4>
+                    <h4 th:text="|Engine: ${o.engine.name()}|"></h4>
                     <h4><a class="btn-block" href="/cars/id">Details</a></h4>
                 </div>
-				
-				 <div class="col-md-4 d-flex flex-column bg-text mb-3">
-                    <h2>Car brand: ...</h2>
-                    <h4>Model: ....</h4>
-                    <h4>Year: ...</h4>
-                    <h4>Engine: ...</h4>
-                    <h4><a class="btn-block" href="/cars/id">Details</a></h4>
-                </div>
-           
+            </th:block>
     </div>
 </main>
 </body>
