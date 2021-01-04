@@ -22,7 +22,7 @@ public class User extends BaseEntity {
     private String lastName;
     @Column
     private Boolean active;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "users_roles",
             joinColumns = { @JoinColumn(name = "user_id") },
@@ -35,6 +35,6 @@ public class User extends BaseEntity {
     private LocalDateTime created;
     @Column
     private LocalDateTime modified;
-    @OneToMany(mappedBy = "seller")
+    @OneToMany(mappedBy = "seller", fetch = FetchType.EAGER)
     private Set<Offer> offers;
 }
