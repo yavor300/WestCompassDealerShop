@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 public class OfferServiceModel {
+    private String id;
     private String description;
     private EngineType engine;
     private String imageUrl;

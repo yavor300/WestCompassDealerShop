@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class BrandServiceModel {
+    private String id;
     private String name;
     private LocalDateTime created;
     private LocalDateTime modified;

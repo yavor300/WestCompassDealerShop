@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class ModelServiceModel {
+    private String id;
     private String name;
     private String imageUrl;
     private Integer startYear;

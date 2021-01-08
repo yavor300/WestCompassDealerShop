@@ -6,4 +6,5 @@ import springboot.vehicles.domain.entities.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
+    User findByUsername(String username);
 }

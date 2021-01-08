@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>West Compass</title>
@@ -32,16 +33,16 @@
     </nav>
     <div class="container-fluid">
         <h2 class="text-center text-white">Add Model</h2>
-        <form class="mt-lg-5 w-15 h-50" action="/" method="/">
+        <form class="mt-lg-5 w-15 h-50" th:action="@{/models/add}" th:method="post", th:object="${model}">
             <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <div class="label-holder d-flex justify-content-center">
                             <label class="text-center text-white font-weight-bold" for="brand">Select Brand
                                 <select id="brand" name="brand" class="form-control">
-                                    <option value="">Select Brand</option>
-                                    <option value="">Mercedes</option>
-									<option value="">BMW</option>
+                                    <th:block th:each="b : ${brands}">
+                                        <option th:value="${b.name}">[[${b.name}]]</option>
+                                    </th:block>
                                 </select>
                             </label>
                         </div>

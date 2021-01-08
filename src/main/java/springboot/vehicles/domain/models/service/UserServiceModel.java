@@ -11,6 +11,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 public class UserServiceModel {
+    private String id;
     private String username;
     private String firstName;
     private String lastName;

@@ -29,6 +29,6 @@ public class Model extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "brand_id", referencedColumnName = "id")
     private Brand brand;
-    @OneToMany(mappedBy = "model")
+    @OneToMany(mappedBy = "model", fetch = FetchType.EAGER)
     private Set<Offer> offers;
 }

@@ -11,6 +11,8 @@ import springboot.vehicles.service.UserService;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -42,5 +44,18 @@ public class UserServiceImpl implements UserService {
         User user = modelMapper.map(userServiceModel, User.class);
 
         return modelMapper.map(userRepository.saveAndFlush(user), UserServiceModel.class);
+    }
+
+    @Override
+    public Set<UserServiceModel> getAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(u -> modelMapper.map(u, UserServiceModel.class))
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public UserServiceModel getByUsername(String username) {
+        return modelMapper.map(userRepository.findByUsername(username), UserServiceModel.class);
     }
 }
