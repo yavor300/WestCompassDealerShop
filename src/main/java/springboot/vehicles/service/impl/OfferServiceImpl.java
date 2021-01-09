@@ -14,6 +14,8 @@ import springboot.vehicles.service.OfferService;
 import springboot.vehicles.service.UserService;
 
 import java.time.LocalDateTime;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class OfferServiceImpl implements OfferService {
@@ -43,5 +45,18 @@ public class OfferServiceImpl implements OfferService {
         Offer offer = modelMapper.map(offerServiceModel, Offer.class);
 
         return modelMapper.map(offerRepository.saveAndFlush(offer), OfferServiceModel.class);
+    }
+
+    @Override
+    public Set<OfferServiceModel> getAll() {
+        return offerRepository.findAll()
+                .stream()
+                .map(o -> modelMapper.map(o, OfferServiceModel.class))
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public OfferServiceModel getById(String id) {
+        return modelMapper.map(offerRepository.findById(id).get(), OfferServiceModel.class);
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>West Compass</title>
@@ -15,16 +16,16 @@
         <div class="collapse navbar-collapse d-flex justify-content-end">
             <ul class="navbar-nav row">
                 <li class="nav-item col-md-3">
-                    <a class="nav-link text-white active font-weight-bold" href="/">Add Brand</a>
+                    <a class="nav-link text-white active font-weight-bold" href="/brands/add">Add Brand</a>
                 </li>
                 <li class="nav-item col-md-3">
-                    <a class="nav-link text-white active font-weight-bold" href="/">Add Model</a>
+                    <a class="nav-link text-white active font-weight-bold" href="/models/add">Add Model</a>
                 </li>
                 <li class="nav-item col-md-3">
-                    <a class="nav-link text-white active font-weight-bold" href="/">Add Offer</a>
+                    <a class="nav-link text-white active font-weight-bold" href="/offers/add">Add Offer</a>
                 </li>
                 <li class="nav-item col-md-3">
-                    <a class="nav-link text-white active font-weight-bold" href="/">All Offers</a>
+                    <a class="nav-link text-white active font-weight-bold" href="/offers/all">All Offers</a>
                 </li>
 
             </ul>
@@ -41,17 +42,17 @@
                 <div class="row">
                     <div class="col">
                         <h2>Car Info:</h2>
-                        <h4>Car brand</h4>
-                        <h4>Car model</h4>
-                        <h4>Car year</h4>
-                        <h4>Engine</h4>
-                        <h4>Transmission</h4>
+                        <h4 th:text="*{model.brand.name}"></h4>
+                        <h4 th:text="*{model.name}"></h4>
+                        <h4 th:text="*{year}"></h4>
+                        <h4 th:text="*{engine.name()}"></h4>
+                        <h4 th:text="*{transmission.name()}"></h4>
                     </div>
                     <div class="col">
                         <h2>Offer Info:</h2>
-                        <h4>Seller username</h4>
-                        <h4>Price</h4>
-                        <h4>Modified</h4>
+                        <h4 th:text="*{seller.username}"></h4>
+                        <h4 th:text="|*{price} $|"></h4>
+                        <h4 th:text="*{created}"></h4>
                     </div>
                 </div>
 
@@ -59,7 +60,7 @@
                         <label for="description">Description</label>
                         <br>
                         <textarea class="bg-dark text-white" name="description" id="description"
-                                  disabled >Offer description</textarea>
+                                  disabled >[[*{description}]]</textarea>
 
                 </div>
 

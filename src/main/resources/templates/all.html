@@ -33,7 +33,7 @@
                     <h4 th:text="|Model: ${o.model.name}|"></h4>
                     <h4 th:text="|Year: ${o.year}|"></h4>
                     <h4 th:text="|Engine: ${o.engine.name()}|"></h4>
-                    <h4><a class="btn-block" href="/cars/id">Details</a></h4>
+                    <h4><a class="btn-block" th:href="@{/offers/details/{id}(id=${o.id})}">Details</a></h4>
                 </div>
             </th:block>
     </div>

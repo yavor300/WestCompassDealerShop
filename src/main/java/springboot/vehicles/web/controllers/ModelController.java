@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import springboot.vehicles.domain.models.binding.ModelAddBindingModel;
-import springboot.vehicles.domain.models.binding.UserRegisterBindingModel;
 import springboot.vehicles.domain.models.service.ModelServiceModel;
 import springboot.vehicles.service.BrandService;
 import springboot.vehicles.service.ModelService;
